@@ -10,9 +10,9 @@ body{
   padding: 0px;
   font-family: 'Tomorrow', sans-serif;
   background-image: linear-gradient(to right,#000000d8,#b4b2b2);
-  height: 100vh;
+  height: 100%;
   width: 100%; 
-  overflow: hidden; 
+   
   
 }
 
@@ -29,7 +29,10 @@ body{
 }
 
 .btn2 {
-  @apply rounded-full transition ease-out duration-500 mx-2 sm:px-2 md:px-3 sm:py-1 md:py-2 sm:text-[8px] md:text-[12px] bg-transparent text-white uppercase cursor-pointer border hover:bg-white hover:text-black
+  @apply rounded-full flex items-center transition ease-out duration-500 mx-2 sm:px-2 md:px-3 sm:py-1 md:py-2 sm:text-[8px] md:text-[12px] bg-transparent text-white uppercase cursor-pointer border hover:bg-white hover:text-black
 }
+
+
+
 
 
