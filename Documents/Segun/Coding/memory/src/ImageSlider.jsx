@@ -6,10 +6,11 @@ import "slick-carousel/slick/slick-theme.css"
 import { AiOutlineMail } from 'react-icons/ai';
 import { FaCamera, FaInstagram, FaPlus, FaTwitter } from 'react-icons/fa';
 import { motion } from 'framer-motion'
+import { Link } from "react-router-dom";
 
 
 
-const ImageSlider = ({ showModal, setShowModal }) => {
+const ImageSlider = () => {
 
     const [students, setStudents] = useState([])
    
@@ -52,24 +53,27 @@ const ImageSlider = ({ showModal, setShowModal }) => {
             <motion.div 
                 initial={{ x: '-100vw'}}
                 animate={{ x: 0 }}
-                transition={{duration: 0.9, delay: 5, type: 'spring', stiffness: 20 }}
+                transition={{duration: 0.9, delay: 1, type: 'spring', stiffness: 20 }}
                 className="w-full relative px-7 py-3 box-border mt-5 focus:outline-none active:border-none hover:border-none">
                 <Slider {...settings}>
                     {students.map((student) => (
-                    <div className="w-full md:h-[500px] bg-transparent sm:h-[200px] cursor-pointer group">
-                        <div className=" relative p-0 mx-4 z-2 h-full duration-500 bg-black hover:transform sm:hover:translate-y-[-15px] md:hover:translate-y-[-60px] hover:transition-all hover:ease-in-out hover:duration-1000">
-                            <img 
-                                onClick={() => setShowModal(!showModal)}                           
-                                className="w-full h-full overflow-hidden object-cover opacity-100 group-hover:opacity-50 transition duration-500" src={student.img} alt="" />
-                            <ul className="md:flex md:gap-5 z-2 mx-auto sm:hidden bg-transparent absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 blur-[1px] opacity-0 group-hover:opacity-100 transition duration-500">
-                                <li className="list-none"><a className="icon-container" href="#"><FaTwitter className="icon"/></a></li>
-                                <li className="list-none"><a className="icon-container" href="#"><FaInstagram className="icon"/></a></li>
-                                <li className="list-none"><a className="icon-container" href="#"><AiOutlineMail className="icon"/></a></li>
-                            </ul>
-                            <div className="absolute sm:top-[80px] sm:p-10 sm:left-[-40px] md:w-[350px] md:h-[120px] md:top-[453px] md:left-[0] md:group-hover:bottom-[-100px] bg-transparent z-2 p-3 duration-[.6s]">
-                                <h2 className="my-[30px] sm:text-[10px] md:text-lg text-white text-center md:text-lg font-bold">{student.first_name + " " + student.last_name}<span className="text-lg text-white font-light sm:opacity-0 md:opacity-100 leading-[2]">  |  Electrical</span> </h2>
+                    <div key={student.id} className="w-full md:h-[500px] bg-transparent sm:h-[200px] cursor-pointer group">
+                       <Link to= {`/student/${student.id}`} >
+                            <div className=" relative p-0 mx-4 z-2 h-full duration-500 bg-black hover:transform sm:hover:translate-y-[-15px] md:hover:translate-y-[-60px] hover:transition-all hover:ease-in-out hover:duration-1000">
+                                
+                                <img                                                        
+                                    className="w-full h-full overflow-hidden object-cover opacity-100 group-hover:opacity-50 transition duration-500" src={student.img} alt="" />
+                                
+                                <ul className="md:flex md:gap-5 z-2 mx-auto sm:hidden bg-transparent absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 blur-[1px] opacity-0 group-hover:opacity-100 transition duration-500">
+                                    <li className="list-none"><a className="icon-container" href="#"><FaTwitter className="icon"/></a></li>
+                                    <li className="list-none"><a className="icon-container" href="#"><FaInstagram className="icon"/></a></li>
+                                    <li className="list-none"><a className="icon-container" href="#"><AiOutlineMail className="icon"/></a></li>
+                                </ul>
+                                <div className="absolute sm:top-[80px] sm:p-10 sm:left-[-40px] md:w-[350px] md:h-[120px] md:top-[453px] md:left-[0] md:group-hover:bottom-[-100px] bg-transparent z-2 p-3 duration-[.6s]">
+                                    <h2 className="my-[30px] sm:text-[10px] md:text-lg text-white text-center md:text-lg font-bold">{student.first_name + " " + student.last_name}<span className="text-lg text-white font-light sm:opacity-0 md:opacity-100 leading-[2]">  |  Electrical</span> </h2>
+                                </div>
                             </div>
-                        </div>
+                        </Link>
                         
                     </div>
                     ))}

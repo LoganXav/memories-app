@@ -9,17 +9,16 @@ import Modal from "./Modal";
 
 const App = () => {
 
-  const [showModal, setShowModal] = useState(false)
-
   return ( 
-    
+     <BrowserRouter>
       <div>  
         <Navbar />
-        
-          <ImageSlider showModal={showModal} setShowModal={setShowModal}/>
-          <Modal showModal={showModal} setShowModal={setShowModal}/>
-        
+        <Routes >
+          <Route path="/" element= {<ImageSlider />} />
+          <Route path="/student/:id" element= {<Modal />  } />
+        </Routes>
       </div>
+    </BrowserRouter>
    
    );
 }
@@ -27,12 +26,13 @@ const App = () => {
 export default App;
 
 
-{/* <Router>
-      <div>  
-        <Navbar />
-        <Routes >
-          <Route path="/" element= {<ImageSlider showModal={showModal} setShowModal={setShowModal}/>} />
-          <Route path="/student/:id" element= {<Modal showModal={showModal} setShowModal={setShowModal}/>  } />
-        </Routes>
-      </div>
-    </Router> */}
+
+
+    
+  //   <div>  
+  //   <Navbar />
+    
+  //     <ImageSlider showModal={showModal} setShowModal={setShowModal}/>
+  //     <Modal showModal={showModal} setShowModal={setShowModal}/>
+    
+  // </div>
