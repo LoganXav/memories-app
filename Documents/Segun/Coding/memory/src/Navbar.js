@@ -1,13 +1,17 @@
 import { BsSearch } from 'react-icons/bs';
 import { FaCamera, FaUser } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import classnames from 'classnames'
 
 
-const Navbar = () => {
+const Navbar = ({searchTerm, setSearchTerm, selectedDept, setSelectedDept}) => {
+    
+    const dept = ['ABE','CVE', 'ELE', 'MCE', 'MTE']
+    
     return ( 
         <div className=''>            
            
-                <motion.div className='flex origin-center max-w-[1650px] justify-between items-center m-[50px] border-b-[1px]'
+                <motion.div className='flex origin-center max-w-[100vw] justify-between items-center m-[50px] border-b-[1px]'
                      initial={{ scaleX: 0}}
                      animate={{ scaleX: 1 }}
                      transition={{ duration: 0.5, delay: 0.2}}>
@@ -26,7 +30,8 @@ const Navbar = () => {
                     
                 </motion.div>
             <div className='flex justify-center'>
-                <motion.div className="relative flex items-center sm:w-[250px] md:w-[500px] rounded-full bg-transparent border border-gray-400"
+                <motion.div 
+                    className="relative flex items-center sm:w-[250px] md:w-[500px] rounded-full bg-transparent border border-gray-400"
                      initial={{ x: '100vw'}}
                      animate={{ x: 0 }}
                      transition={{duration: 5, delay: 0.7, type: 'spring', stiffness: 70 }}>
@@ -34,6 +39,8 @@ const Navbar = () => {
                             className= "sm:text-[10px] md:text-[15px] md:w-full px-6 sm:py-1 md:py-3 bg-transparent border-none text-white leading-tight focus:outline-none"
                             type="text"
                             placeholder="Find your friends..."
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
                         />
                         <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                             <BsSearch className="text-white sm:text-[12px] cursor-pointer" />
@@ -50,36 +57,54 @@ const Navbar = () => {
             </div>                              
             
             <div className='flex justify-center mt-5 sm:w-full'>
-                    <motion.div className="btn2"
-                    initial={{ x: '-100vw'}}
-                     animate={{ x: 0 }}
-                     transition={{duration: 5, delay: 2.2, type: 'spring', stiffness: 30 }}
-                    >ALL</motion.div>
-                    <motion.div className="btn2"
-                    initial={{ x: '-100vw'}}
-                     animate={{ x: 0 }}
-                     transition={{duration: 5, delay: 1.6, type: 'spring', stiffness: 30 }}
-                    >ABE</motion.div>
-                    <motion.div className="btn2"
-                    initial={{ x: '-100vw'}}
-                     animate={{ x: 0 }}
-                     transition={{duration: 5, delay: 1.0, type: 'spring', stiffness: 30 }}
-                    >CVE</motion.div>
-                    <motion.div className="btn2"
-                    initial={{ x: '100vw'}}
-                     animate={{ x: 0 }}
-                     transition={{duration: 5, delay: 1.3, type: 'spring', stiffness: 30 }}
-                    >ELE</motion.div>
-                    <motion.div className="btn2"
-                    initial={{ x: '100vw'}}
-                     animate={{ x: 0 }}
-                     transition={{duration: 5, delay: 1.9, type: 'spring', stiffness: 30 }}
-                    >MCE</motion.div>
-                    <motion.div className="btn2"
-                    initial={{ x: '100vw'}}
-                     animate={{ x: 0 }}
-                     transition={{duration: 5, delay: 2.5, type: 'spring', stiffness: 30 }}
-                    >MTE</motion.div>
+                    <motion.div 
+                        className={classnames("btn2",{'bg-white': selectedDept.includes(dept)})}
+                        initial={{ x: '-100vw'}}
+                        animate={{ x: 0 }}
+                        transition={{duration: 5, delay: 2.2, type: 'spring', stiffness: 30 }}
+                        onClick={() => setSelectedDept((dept) => [...dept, ''])}
+                        >ALL
+                    </motion.div>
+                    <motion.div 
+                        className={classnames("btn2",{'bg-white': selectedDept.includes('ABE')})}
+                        initial={{ x: '-100vw'}}
+                        animate={{ x: 0 }}
+                        transition={{duration: 5, delay: 1.6, type: 'spring', stiffness: 30 }}
+                        onClick={() => setSelectedDept((dept) => [...dept, 'ABE'])}
+                        >ABE
+                    </motion.div>
+                    <motion.div 
+                        className={classnames("btn2",{'bg-white': selectedDept.includes(dept)})}
+                        initial={{ x: '-100vw'}}
+                        animate={{ x: 0 }}
+                        transition={{duration: 5, delay: 1.0, type: 'spring', stiffness: 30 }}
+                        onClick={() => setSelectedDept((dept) => [...dept, 'CVE'])}
+                        >CVE
+                    </motion.div>
+                    <motion.div 
+                        className={classnames("btn2",{'bg-white': selectedDept.includes(dept)})}
+                        initial={{ x: '100vw'}}
+                        animate={{ x: 0 }}
+                        transition={{duration: 5, delay: 1.3, type: 'spring', stiffness: 30 }}
+                        onClick={() => setSelectedDept((dept) => [...dept, 'ELE'])}
+                        >ELE
+                    </motion.div>
+                    <motion.div 
+                        className={classnames("btn2",{'bg-white': selectedDept.includes(dept)})}
+                        initial={{ x: '100vw'}}
+                        animate={{ x: 0 }}
+                        transition={{duration: 5, delay: 1.9, type: 'spring', stiffness: 30 }}
+                        onClick={() => setSelectedDept((dept) => [...dept, 'MCE'])}
+                        >MCE
+                    </motion.div>
+                    <motion.div 
+                        className={classnames("btn2",{'bg-white': selectedDept.includes(dept)})}
+                        initial={{ x: '100vw'}}
+                        animate={{ x: 0 }}
+                        transition={{duration: 5, delay: 2.5, type: 'spring', stiffness: 30 }}
+                        onClick={() => setSelectedDept((dept) => [...dept, 'MTE'])}
+                        >MTE
+                    </motion.div>
                     
             </div>            
             
