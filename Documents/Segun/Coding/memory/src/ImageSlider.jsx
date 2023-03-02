@@ -3,7 +3,7 @@ import { AiOutlineMail } from 'react-icons/ai';
 import { FaCamera, FaInstagram, FaPlus, FaTwitter } from 'react-icons/fa';
 import { motion } from 'framer-motion'
 import { Link } from "react-router-dom";
-import { Splide, SplideSlide } from '@splidejs/react-splide'; 
+import { Splide, SplideSlide, SplidePagination } from '@splidejs/react-splide'; 
 import '@splidejs/splide/dist/css/splide.min.css';
 
 
@@ -21,7 +21,8 @@ const ImageSlider  = ({ students, searchTerm, selectedDept }) => {
         rewind: true,
         drag: true,
         speed: 5000,
-        interval: 9000,        
+        interval: 9000,
+        pagination: true,        
         breakpoints: {
             800: {
                 perPage: 2,
@@ -40,9 +41,9 @@ const ImageSlider  = ({ students, searchTerm, selectedDept }) => {
                 className="w-auto relative px-7 py-3 box-border sm:mt-[20%] md:mt-[1%] focus:outline-none active:border-none hover:border-none">
                 <Splide options = {splideOptions}>
                     {searchedStudents.map((student) => (
-                    <SplideSlide key={student.id} className="sm:max-w-full md:w-full md:h-[500px] bg-transparent sm:h-[200px] cursor-pointer group">
+                    <SplideSlide key={student.id} className="sm:max-w-full md:w-full md:h-[500px] p-2 bg-transparent sm:h-[200px] cursor-pointer group">
                        <Link to= {`/students/${student.id}`} >
-                            <div className=" sm:w-full md:w-full relative sm:p-1 sm:bg-transparent md:p-0 md:bg-black z-2 h-full duration-500 hover:transform sm:hover:translate-y-[-15px] md:hover:translate-y-[-60px] hover:transition-all hover:ease-in-out hover:duration-1000">
+                            <div className=" sm:w-full md:w-auto relative sm:bg-transparent md:bg-black z-2 h-full duration-500 hover:transform sm:hover:translate-y-[-15px] md:hover:translate-y-[-60px] hover:transition-all hover:ease-in-out hover:duration-1000">
                                 
                                 <img                                                        
                                     className="sm:w-[full] md:w-full h-full overflow-hidden object-cover opacity-100 group-hover:opacity-50 transition duration-500" src={student.img} alt="" 
@@ -60,8 +61,8 @@ const ImageSlider  = ({ students, searchTerm, selectedDept }) => {
                         
                     </SplideSlide>
                     ))}
-                </Splide> 
-                           
+                </Splide>
+                <div className="splide__pagination mt-[50px] bg-[red] w-20"></div>                           
                 
             </motion.div>
             <motion.div className="rounded-full md:opacity-0 absolute sm:top-[90%] sm:right-[8vw] md:top-[145px] md:right-[11vw] flex items-center transition ease-out duration-500 mx-2 sm:p-5 md:p-3 sm:text-[18px] md:text-[20px] bg-[gray] text-white uppercase cursor-pointer border hover:bg-white hover:text-black"
