@@ -7,23 +7,24 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
 
 
-const ImageSlider  = ({ students, searchTerm }) => {
-    const filteredStudents = students.filter((student) => student.first_name.toLowerCase().includes(searchTerm.toLowerCase()))
+const ImageSlider  = ({ students, searchTerm, selectedDept }) => {
 
-    const numImages = filteredStudents.length
+    const filteredStudents = students.filter((student) => student.dept.includes(selectedDept))
+    const searchedStudents = filteredStudents.filter((student) => student.first_name.toLowerCase().includes(searchTerm.toLowerCase()))
 
+    
     const splideOptions = {
         
-        perPage: 3,  
-        perMove: 3,      
-        autoplay: true,
+        perPage: 2,  
+        perMove: 2,      
+        //autoplay: true,
         rewind: true,
         drag: true,
         speed: 5000,
-        interval: 7000,        
+        interval: 9000,        
         breakpoints: {
             800: {
-                // perPage,
+                perPage: 2,
                 arrows: false,
                 pagination: false,                
             }            
@@ -36,23 +37,23 @@ const ImageSlider  = ({ students, searchTerm }) => {
                 initial={{ x: '-100vw'}}
                 animate={{ x: 0 }}
                 transition={{duration: 0.9, delay: 1, type: 'spring', stiffness: 20 }}
-                className="w-auto  relative px-7 py-3 box-border sm:mt-[20%] md:mt-5 focus:outline-none active:border-none hover:border-none">
+                className="w-auto relative px-7 py-3 box-border sm:mt-[20%] md:mt-[1%] focus:outline-none active:border-none hover:border-none">
                 <Splide options = {splideOptions}>
-                    {filteredStudents.map((student) => (
-                    <SplideSlide key={student.id} className="sm:max-w-full md:w-[300px] md:h-[500px] bg-transparent sm:h-[200px] cursor-pointer group">
-                       <Link to= {`/student/${student.id}`} >
-                            <div className=" sm:w-[200px] md:w-[500px] relative bg-black p-0 mx-auto z-2 h-full duration-500 hover:transform sm:hover:translate-y-[-15px] md:hover:translate-y-[-60px] hover:transition-all hover:ease-in-out hover:duration-1000">
+                    {searchedStudents.map((student) => (
+                    <SplideSlide key={student.id} className="sm:max-w-full md:w-full md:h-[500px] bg-transparent sm:h-[200px] cursor-pointer group">
+                       <Link to= {`/students/${student.id}`} >
+                            <div className=" sm:w-full md:w-full relative sm:p-1 sm:bg-transparent md:p-0 md:bg-black z-2 h-full duration-500 hover:transform sm:hover:translate-y-[-15px] md:hover:translate-y-[-60px] hover:transition-all hover:ease-in-out hover:duration-1000">
                                 
                                 <img                                                        
                                     className="sm:w-[full] md:w-full h-full overflow-hidden object-cover opacity-100 group-hover:opacity-50 transition duration-500" src={student.img} alt="" 
                                 />                                
                                 <ul className="md:flex md:gap-5 z-2 mx-auto sm:hidden bg-transparent absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 blur-[1px] opacity-0 group-hover:opacity-100 transition duration-500">
-                                    <li className="list-none"><a className="icon-container" href="#"><FaTwitter className="icon"/></a></li>
-                                    <li className="list-none"><a className="icon-container" href="#"><FaInstagram className="icon"/></a></li>
-                                    <li className="list-none"><a className="icon-container" href="#"><AiOutlineMail className="icon"/></a></li>
+                                    <li className="list-none"><div className="icon-container" href="#"><FaTwitter className="icon"/></div></li>
+                                    <li className="list-none"><div className="icon-container" href="#"><FaInstagram className="icon"/></div></li>
+                                    <li className="list-none"><div className="icon-container" href="#"><AiOutlineMail className="icon"/></div></li>
                                 </ul>
                                 <div className="absolute sm:top-[80px] sm:p-10 sm:left-[-5%] md:w-[350px] md:h-[120px] md:top-[453px] md:left-[0] md:group-hover:bottom-[-100px] bg-transparent z-2 p-3 duration-[.6s]">
-                                    <h2 className="my-[30px] sm:text-[10px] md:text-lg text-white text-center md:text-lg font-bold">{student.first_name + " " + student.last_name}<span className="text-lg text-white font-light sm:opacity-0 md:opacity-100 leading-[2]">  |  Electrical</span> </h2>
+                                    <h2 className="my-[30px] sm:text-[10px] md:text-lg text-white text-center md:text-lg font-bold">{student.first_name + " " + student.last_name}<span className="text-lg text-white font-light sm:opacity-0 md:opacity-100 leading-[2]">  |  {student.dept}</span> </h2>
                                 </div>
                             </div>
                         </Link>

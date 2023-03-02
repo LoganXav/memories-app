@@ -29,7 +29,7 @@ body{
 }
 
 .btn2 {
-  @apply rounded-full flex items-center transition ease-out duration-500 mx-2 sm:px-2 md:px-3 sm:py-1 md:py-2 sm:text-[8px] md:text-[12px] bg-transparent text-white uppercase cursor-pointer border hover:bg-white hover:text-black
+  @apply rounded-full flex items-center transition ease-out duration-500 mx-2 sm:px-2 md:px-3 sm:py-1 md:py-2 sm:text-[8px] md:text-[12px] uppercase cursor-pointer border hover:bg-white hover:text-black
 }
 
 

@@ -45,10 +45,17 @@ const App = () => {
             element= {<ImageSlider 
                           students = {students} 
                           searchTerm = {searchTerm} 
-                          selectedDept = {selectedDept}/>} />
+                          selectedDept = {selectedDept}
+                        />}
+          />
+
           <Route 
-            path="/student/:id" 
-            element= {<Modal />  } />
+            path="/students/:id"
+            element= {students && <Modal 
+                          students = {students}
+                          
+                    />} 
+          />
         </Routes>
       </div>
     </BrowserRouter>
@@ -61,11 +68,4 @@ export default App;
 
 
 
-    
-  //   <div>  
-  //   <Navbar />
-    
-  //     <ImageSlider showModal={showModal} setShowModal={setShowModal}/>
-  //     <Modal showModal={showModal} setShowModal={setShowModal}/>
-    
-  // </div>
+  

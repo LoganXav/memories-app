@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { FaCamera, FaUser } from 'react-icons/fa';
 import { motion } from 'framer-motion';
@@ -6,7 +7,18 @@ import classnames from 'classnames'
 
 const Navbar = ({searchTerm, setSearchTerm, selectedDept, setSelectedDept}) => {
     
-    const dept = ['ABE','CVE', 'ELE', 'MCE', 'MTE']
+    const [selectedButton, setSelectedButton] = useState("")
+       
+    const handleClick = (dept) => {
+        setSelectedDept((prevState) =>
+          prevState.includes(dept)
+            ? prevState.filter((selected) => selected != dept)
+            : [dept]
+        );
+        setSelectedButton((prev) => 
+          prev === dept ? prev = "" : dept)
+      }
+         
     
     return ( 
         <div className=''>            
@@ -57,59 +69,49 @@ const Navbar = ({searchTerm, setSearchTerm, selectedDept, setSelectedDept}) => {
             </div>                              
             
             <div className='flex justify-center mt-5 sm:w-full'>
+                    
                     <motion.div 
-                        className={classnames("btn2",{'bg-white': selectedDept.includes(dept)})}
-                        initial={{ x: '-100vw'}}
-                        animate={{ x: 0 }}
-                        transition={{duration: 5, delay: 2.2, type: 'spring', stiffness: 30 }}
-                        onClick={() => setSelectedDept((dept) => [...dept, ''])}
-                        >ALL
-                    </motion.div>
-                    <motion.div 
-                        className={classnames("btn2",{'bg-white': selectedDept.includes('ABE')})}
+                        className={`btn2 ${selectedButton === 'ABE' ? 'bg-white text-black' : 'bg-transparent text-white'}`}
                         initial={{ x: '-100vw'}}
                         animate={{ x: 0 }}
                         transition={{duration: 5, delay: 1.6, type: 'spring', stiffness: 30 }}
-                        onClick={() => setSelectedDept((dept) => [...dept, 'ABE'])}
+                        onClick={() => handleClick('ABE')}
                         >ABE
                     </motion.div>
                     <motion.div 
-                        className={classnames("btn2",{'bg-white': selectedDept.includes(dept)})}
+                        className={`btn2 ${selectedButton === 'CVE' ? 'bg-white text-black' : 'bg-transparent text-white'}`}
                         initial={{ x: '-100vw'}}
                         animate={{ x: 0 }}
                         transition={{duration: 5, delay: 1.0, type: 'spring', stiffness: 30 }}
-                        onClick={() => setSelectedDept((dept) => [...dept, 'CVE'])}
+                        onClick={() => handleClick('CVE')}
                         >CVE
                     </motion.div>
                     <motion.div 
-                        className={classnames("btn2",{'bg-white': selectedDept.includes(dept)})}
+                        className={`btn2 ${selectedButton === 'ELE' ? 'bg-white text-black' : 'bg-transparent text-white'}`}
                         initial={{ x: '100vw'}}
                         animate={{ x: 0 }}
                         transition={{duration: 5, delay: 1.3, type: 'spring', stiffness: 30 }}
-                        onClick={() => setSelectedDept((dept) => [...dept, 'ELE'])}
+                        onClick={() => handleClick('ELE')}
                         >ELE
                     </motion.div>
                     <motion.div 
-                        className={classnames("btn2",{'bg-white': selectedDept.includes(dept)})}
+                        className={`btn2 ${selectedButton === 'MCE' ? 'bg-white text-black' : 'bg-transparent text-white'}`}
                         initial={{ x: '100vw'}}
                         animate={{ x: 0 }}
                         transition={{duration: 5, delay: 1.9, type: 'spring', stiffness: 30 }}
-                        onClick={() => setSelectedDept((dept) => [...dept, 'MCE'])}
+                        onClick={() => handleClick('MCE')}
                         >MCE
                     </motion.div>
                     <motion.div 
-                        className={classnames("btn2",{'bg-white': selectedDept.includes(dept)})}
+                        className={`btn2 ${selectedButton === 'MTE' ? 'bg-white text-black' : 'bg-transparent text-white'}`}
                         initial={{ x: '100vw'}}
                         animate={{ x: 0 }}
-                        transition={{duration: 5, delay: 2.5, type: 'spring', stiffness: 30 }}
-                        onClick={() => setSelectedDept((dept) => [...dept, 'MTE'])}
+                        transition={{duration: 5, delay: 2.2, type: 'spring', stiffness: 30 }}
+                        onClick={() => handleClick('MTE')}
                         >MTE
-                    </motion.div>
-                    
-            </div>            
-            
-        </div>
-        
+                    </motion.div>                    
+            </div>         
+        </div>        
      );
 }
  
