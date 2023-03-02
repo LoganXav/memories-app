@@ -15,9 +15,9 @@ const ImageSlider  = ({ students, searchTerm, selectedDept }) => {
     
     const splideOptions = {
         
-        perPage: 2,  
+        perPage: 4,  
         perMove: 2,      
-        //autoplay: true,
+        autoplay: true,
         rewind: true,
         drag: true,
         speed: 5000,
@@ -46,14 +46,14 @@ const ImageSlider  = ({ students, searchTerm, selectedDept }) => {
                             <div className=" sm:w-full md:w-auto relative sm:bg-transparent md:bg-black z-2 h-full duration-500 hover:transform sm:hover:translate-y-[-15px] md:hover:translate-y-[-60px] hover:transition-all hover:ease-in-out hover:duration-1000">
                                 
                                 <img                                                        
-                                    className="sm:w-[full] md:w-full h-full overflow-hidden object-cover opacity-100 group-hover:opacity-50 transition duration-500" src={student.img} alt="" 
+                                    className="sm:w-[full] md:w-full h-full overflow-hidden center object-cover opacity-100 group-hover:opacity-50 transition duration-500" src={student.img} alt="" 
                                 />                                
                                 <ul className="md:flex md:gap-5 z-2 mx-auto sm:hidden bg-transparent absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 blur-[1px] opacity-0 group-hover:opacity-100 transition duration-500">
                                     <li className="list-none"><div className="icon-container" href="#"><FaTwitter className="icon"/></div></li>
                                     <li className="list-none"><div className="icon-container" href="#"><FaInstagram className="icon"/></div></li>
                                     <li className="list-none"><div className="icon-container" href="#"><AiOutlineMail className="icon"/></div></li>
                                 </ul>
-                                <div className="absolute sm:top-[80px] sm:p-10 sm:left-[-5%] md:w-[350px] md:h-[120px] md:top-[453px] md:left-[0] md:group-hover:bottom-[-100px] bg-transparent z-2 p-3 duration-[.6s]">
+                                <div className="absolute sm:top-[80px] sm:p-10 sm:left-[-5%] md:w-auto md:h-[120px] md:top-[453px] md:left-[0] md:group-hover:bottom-[-100px] bg-transparent z-2 p-3 duration-[.6s]">
                                     <h2 className="my-[30px] sm:text-[10px] md:text-lg text-white text-center md:text-lg font-bold">{student.first_name + " " + student.last_name}<span className="text-lg text-white font-light sm:opacity-0 md:opacity-100 leading-[2]">  |  {student.dept}</span> </h2>
                                 </div>
                             </div>

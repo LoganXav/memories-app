@@ -45,10 +45,10 @@ const Modal = ({ students }) => {
                         { student && <p className='text-white flex justify-center items-center'>{student.dept}</p>}
                     </div>                           
                     <div className='grid md:grid-cols-4 sm:grid-cols-2 sm:gap-2 mx-auto sm:my-[20px] md:my-[50px]'>
-                        <img className="rounded-md  sm:w-[130px] md:w-[250px]  sm:h-[130px] md:h-[250px] object-cover"  src="https://images.hdqwalls.com/download/call-of-duty-modern-warfare-2019-4k-cb-1920x1080.jpg" alt="" />
-                        <img className="rounded-md  sm:w-[130px] md:w-[250px]  sm:h-[130px] md:h-[250px] object-cover"  src="https://images.hdqwalls.com/download/call-of-duty-modern-warfare-2019-4k-cb-1920x1080.jpg" alt="" />
-                        <img className="rounded-md  sm:w-[130px] md:w-[250px]  sm:h-[130px] md:h-[250px] object-cover"  src="https://images.hdqwalls.com/download/call-of-duty-modern-warfare-2019-4k-cb-1920x1080.jpg" alt="" />
-                        <img className="rounded-md  sm:w-[130px] md:w-[250px]  sm:h-[130px] md:h-[250px] object-cover"  src="https://images.hdqwalls.com/download/call-of-duty-modern-warfare-2019-4k-cb-1920x1080.jpg" alt="" />
+                        <img className="rounded-md  sm:w-[130px] md:w-[250px]  sm:h-[130px] md:h-[250px] object-cover"  src={student.img} alt="" />
+                        <img className="rounded-md  sm:w-[130px] md:w-[250px]  sm:h-[130px] md:h-[250px] object-cover"  src={student.img2} alt="" />
+                        <img className="rounded-md  sm:w-[130px] md:w-[250px]  sm:h-[130px] md:h-[250px] object-cover"  src={student.img3} alt="" />
+                        <img className="rounded-md  sm:w-[130px] md:w-[250px]  sm:h-[130px] md:h-[250px] object-cover"  src={student.img4} alt="" />
                     </div>
                     <div className="text-white flex justify-center items-center sm:text-sm" >
                         <FaQuoteLeft className="w-[10px] mx-5"/>

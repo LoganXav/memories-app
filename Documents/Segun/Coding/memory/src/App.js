@@ -13,22 +13,14 @@ const App = () => {
    
     
   useEffect(() => {
-      getStudents()
+    const fetchData = async () => {
+      const res = await axios.get("http://localhost:3001/students")
+      setStudents(res.data)
+    }
+    fetchData()
   }, [])
 
-  const getStudents = async () => {
-      const check = localStorage.getItem("students")
-
-      if (check) {
-          setStudents(JSON.parse(check))
-      } else {
-          const res = await axios.get("http://localhost:3001/students")
-          localStorage.setItem("students", JSON.stringify(res.data))
-          setStudents(res.data)
-      }
-  }    //store in local storage so we make axios request just once
-
-
+  
 
   return ( 
      <BrowserRouter>
