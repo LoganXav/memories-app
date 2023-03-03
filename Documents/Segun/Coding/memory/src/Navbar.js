@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { FaCamera, FaUser } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import classnames from 'classnames'
+import { signInWIthGoogle } from './firebase';
 
 
-const Navbar = ({searchTerm, setSearchTerm, selectedDept, setSelectedDept}) => {
+const Navbar = ({searchTerm, setSearchTerm, setSelectedDept}) => {
     
-    const [selectedButton, setSelectedButton] = useState("")
+    const [selectedButton, setSelectedButton] = useState("")             // keeps track of state of the selected buttons for styling
        
     const handleClick = (dept) => {
         setSelectedDept((prevState) =>
@@ -16,12 +16,11 @@ const Navbar = ({searchTerm, setSearchTerm, selectedDept, setSelectedDept}) => {
             : [dept]
         );
         setSelectedButton((prev) => 
-          prev === dept ? prev = "" : dept)
-      }
-         
+          prev === dept ? prev = "" : dept)                          // new dept selected, replace the prev. prev selected, return stated to an empty string
+      }         
     
     return ( 
-        <div className=''>            
+        <div className=''>         
            
                 <motion.div className='flex origin-center max-w-[100vw] justify-between items-center m-[50px] border-b-[1px]'
                      initial={{ scaleX: 0}}
@@ -37,9 +36,8 @@ const Navbar = ({searchTerm, setSearchTerm, selectedDept, setSelectedDept}) => {
                         initial={{ y: -300}}
                         animate={{ y: -10 }}
                         transition={{duration: 0.9, delay: 0.5, type: 'spring', stiffness: 120 }}>
-                        <a className='btn1'><FaUser /></a>                        
-                    </motion.div>
-                    
+                        <button onClick={signInWIthGoogle} className='btn1'><FaUser /></button>                        
+                    </motion.div>                    
                 </motion.div>
             <div className='flex justify-center'>
                 <motion.div 
@@ -51,7 +49,7 @@ const Navbar = ({searchTerm, setSearchTerm, selectedDept, setSelectedDept}) => {
                             className= "sm:text-[10px] md:text-[15px] md:w-full px-6 sm:py-1 md:py-3 bg-transparent border-none text-white leading-tight focus:outline-none"
                             type="text"
                             placeholder="Find your friends..."
-                            value={searchTerm}
+                            value={searchTerm}                                 //the searched term is passed up in state to be consumed by in the image slider
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
                         <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
@@ -71,7 +69,7 @@ const Navbar = ({searchTerm, setSearchTerm, selectedDept, setSelectedDept}) => {
             <div className='flex justify-center mt-5 sm:w-full'>
                     
                     <motion.div 
-                        className={`btn2 ${selectedButton === 'ABE' ? 'bg-white text-black' : 'bg-transparent text-white'}`}
+                        className={`btn2 ${selectedButton === 'ABE' ? 'bg-white text-black' : 'bg-transparent text-white'}`}         //conditional styles based on the states of the selected button (dept)
                         initial={{ x: '-100vw'}}
                         animate={{ x: 0 }}
                         transition={{duration: 5, delay: 1.6, type: 'spring', stiffness: 30 }}
