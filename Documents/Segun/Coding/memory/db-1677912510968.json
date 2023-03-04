@@ -1,0 +1,237 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "first_name": "Weider",
+      "last_name": "Applegarth",
+      "email": "wapplegarth0@vk.com",
+      "dept": "ABE",
+      "gender": "Male",
+      "phone_number": 11,
+      "img": "https://media.istockphoto.com/id/1351018006/photo/smiling-male-student-sitting-in-university-classroom.jpg?b=1&s=170667a&w=0&k=20&c=31vzgwMUlEu_UZTNriH7Mx_y-d_XK4HTXgwBYY1jmeI=",
+      "img2": "https://media.istockphoto.com/id/1351445530/photo/african-student-sitting-in-classroom.jpg?b=1&s=170667a&w=0&k=20&c=0M-gtlR1M_x9sYGarPG44f54s5cBBdHTsPxmzNzHbAE=",
+      "img3": "https://media.istockphoto.com/id/511652302/photo/students-life.jpg?b=1&s=170667a&w=0&k=20&c=cX6HGJfOq2SloLgHvpnKQMuTWC620S92DZArLiFlL5U=",
+      "img4": "https://media.istockphoto.com/id/1346691472/photo/excited-african-american-college-graduate-with-his-family-after-the-graduation-ceremony.jpg?b=1&s=170667a&w=0&k=20&c=_FSKYXeeDnQwn3QrulWbA5F8PPBheSRVW5CJM3ptuks="
+    },
+    {
+      "id": 2,
+      "first_name": "Trevar",
+      "last_name": "Ismead",
+      "email": "tismead1@ezinearticles.com",
+      "dept": "ELE",
+      "gender": "Male",
+      "phone_number": 11,
+      "img": "https://images.hdqwalls.com/download/call-of-duty-modern-warfare-2019-4k-cb-1920x1080.jpg"
+    },
+    {
+      "id": 3,
+      "first_name": "Johnath",
+      "last_name": "Westwood",
+      "email": "jwestwood2@hud.gov",
+      "dept": "MCE",
+      "gender": "Female",
+      "phone_number": 11,
+      "img": "https://images.hdqwalls.com/download/call-of-duty-modern-warfare-2019-4k-cb-1920x1080.jpg"
+    },
+    {
+      "id": 4,
+      "first_name": "Reynold",
+      "last_name": "Pogosian",
+      "email": "rpogosian3@cnet.com",
+      "dept": "ELE",
+      "gender": "Male",
+      "phone_number": 11,
+      "img": "https://images.hdqwalls.com/download/call-of-duty-modern-warfare-2019-4k-cb-1920x1080.jpg"
+    },
+    {
+      "id": 5,
+      "first_name": "Marilee",
+      "last_name": "Bartosik",
+      "email": "mbartosik4@census.gov",
+      "dept": "CVE",
+      "gender": "Female",
+      "phone_number": 11,
+      "img": "https://images.hdqwalls.com/download/call-of-duty-modern-warfare-2019-4k-cb-1920x1080.jpg"
+    },
+    {
+      "id": 6,
+      "first_name": "Georgeta",
+      "last_name": "Malzard",
+      "email": "gmalzard5@acquirethisname.com",
+      "dept": "CVE",
+      "gender": "Female",
+      "phone_number": 11,
+      "img": "https://images.hdqwalls.com/download/call-of-duty-modern-warfare-2019-4k-cb-1920x1080.jpg"
+    },
+    {
+      "id": 7,
+      "first_name": "Ulises",
+      "last_name": "O'Mannion",
+      "email": "uomannion6@freewebs.com",
+      "dept": "ELE",
+      "gender": "Male",
+      "phone_number": 11,
+      "img": "https://images.hdqwalls.com/download/call-of-duty-modern-warfare-2019-4k-cb-1920x1080.jpg"
+    },
+    {
+      "id": 8,
+      "first_name": "Kirbee",
+      "last_name": "Fitch",
+      "email": "kfitch7@diigo.com",
+      "dept": "MCE",
+      "gender": "Female",
+      "phone_number": 11,
+      "img": "https://images.hdqwalls.com/download/call-of-duty-modern-warfare-2019-4k-cb-1920x1080.jpg"
+    },
+    {
+      "id": 9,
+      "first_name": "Read",
+      "last_name": "Farnan",
+      "email": "rfarnan8@apple.com",
+      "dept": "ELE",
+      "gender": "Male",
+      "phone_number": 11,
+      "img": "https://images.hdqwalls.com/download/call-of-duty-modern-warfare-2019-4k-cb-1920x1080.jpg"
+    },
+    {
+      "id": 10,
+      "first_name": "Maxwell",
+      "last_name": "Swiffin",
+      "email": "mswiffin9@chicagotribune.com",
+      "dept": "CVE",
+      "gender": "Male",
+      "phone_number": 11,
+      "img": "https://images.hdqwalls.com/download/call-of-duty-modern-warfare-2019-4k-cb-1920x1080.jpg"
+    },
+    {
+      "id": 11,
+      "first_name": "Leo",
+      "last_name": "Krochmann",
+      "email": "lkrochmanna@narod.ru",
+      "dept": "MTE",
+      "gender": "Male",
+      "phone_number": 11,
+      "img": "https://images.hdqwalls.com/download/call-of-duty-modern-warfare-2019-4k-cb-1920x1080.jpg"
+    },
+    {
+      "id": 12,
+      "first_name": "Tybie",
+      "last_name": "Katt",
+      "email": "tkattb@amazonaws.com",
+      "dept": "CVE",
+      "gender": "Female",
+      "phone_number": 11,
+      "img": "https://images.hdqwalls.com/download/call-of-duty-modern-warfare-2019-4k-cb-1920x1080.jpg"
+    },
+    {
+      "id": 13,
+      "first_name": "Othello",
+      "last_name": "Carillo",
+      "email": "ocarilloc@unblog.fr",
+      "dept": "ELE",
+      "gender": "Male",
+      "phone_number": 11,
+      "img": "https://images.hdqwalls.com/download/call-of-duty-modern-warfare-2019-4k-cb-1920x1080.jpg"
+    },
+    {
+      "id": 14,
+      "first_name": "Reynard",
+      "last_name": "Riehm",
+      "email": "rriehmd@sfgate.com",
+      "dept": "ABE",
+      "gender": "Male",
+      "phone_number": 11,
+      "img": "https://images.hdqwalls.com/download/call-of-duty-modern-warfare-2019-4k-cb-1920x1080.jpg"
+    },
+    {
+      "id": 15,
+      "first_name": "Trev",
+      "last_name": "Snaddon",
+      "email": "tsnaddone@amazonaws.com",
+      "dept": "CVE",
+      "gender": "Male",
+      "phone_number": 11,
+      "img": "https://images.hdqwalls.com/download/call-of-duty-modern-warfare-2019-4k-cb-1920x1080.jpg"
+    },
+    {
+      "id": 16,
+      "first_name": "Ephrem",
+      "last_name": "Luscombe",
+      "email": "eluscombef@acquirethisname.com",
+      "dept": "MCE",
+      "gender": "Male",
+      "phone_number": 11,
+      "img": "https://images.hdqwalls.com/download/call-of-duty-modern-warfare-2019-4k-cb-1920x1080.jpg"
+    },
+    {
+      "id": 17,
+      "first_name": "Lexy",
+      "last_name": "Klimschak",
+      "email": "lklimschakg@tinyurl.com",
+      "dept": "CVE",
+      "gender": "Female",
+      "phone_number": 11,
+      "img": "https://images.hdqwalls.com/download/call-of-duty-modern-warfare-2019-4k-cb-1920x1080.jpg"
+    },
+    {
+      "id": 18,
+      "first_name": "Willa",
+      "last_name": "Riddel",
+      "email": "wriddelh@seesaa.net",
+      "dept": "ELE",
+      "gender": "Genderfluid",
+      "phone_number": 11,
+      "img": "https://images.hdqwalls.com/download/call-of-duty-modern-warfare-2019-4k-cb-1920x1080.jpg"
+    },
+    {
+      "id": 19,
+      "first_name": "Byron",
+      "last_name": "Yanne",
+      "email": "byannei@virginia.edu",
+      "dept": "MTE",
+      "gender": "Polygender",
+      "phone_number": 11,
+      "img": "https://images.hdqwalls.com/download/call-of-duty-modern-warfare-2019-4k-cb-1920x1080.jpg"
+    },
+    {
+      "id": 20,
+      "first_name": "Chas",
+      "last_name": "Halgarth",
+      "email": "chalgarthj@stanford.edu",
+      "dept": "ABE",
+      "gender": "Male",
+      "phone_number": 11,
+      "img": "https://images.hdqwalls.com/download/call-of-duty-modern-warfare-2019-4k-cb-1920x1080.jpg"
+    },
+    {
+      "id": 21,
+      "first_name": "Shep",
+      "last_name": "Goldstone",
+      "email": "sgoldstonek@usa.gov",
+      "dept": "MCE",
+      "gender": "Male",
+      "phone_number": 11,
+      "img": "https://images.hdqwalls.com/download/call-of-duty-modern-warfare-2019-4k-cb-1920x1080.jpg"
+    },
+    {
+      "id": 22,
+      "first_name": "Tomas",
+      "last_name": "Williamson",
+      "email": "twilliamsonl@fema.gov",
+      "dept": "MTE",
+      "gender": "Male",
+      "phone_number": 11,
+      "img": "https://images.hdqwalls.com/download/call-of-duty-modern-warfare-2019-4k-cb-1920x1080.jpg"
+    },
+    {
+      "id": 23,
+      "first_name": "Berta",
+      "last_name": "Benbrick",
+      "email": "bbenbrickm@fda.gov",
+      "dept": "ABE",
+      "gender": "Female",
+      "phone_number": 11,
+      "img": "https://images.hdqwalls.com/download/call-of-duty-modern-warfare-2019-4k-cb-1920x1080.jpg"
+    }
+  ]
+}

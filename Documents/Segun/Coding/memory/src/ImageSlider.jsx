@@ -69,7 +69,7 @@ const ImageSlider  = ({ students, searchTerm, selectedDept }) => {
                                 initial={{ scaleX: 0}}
                                 animate={{ scaleX: 1 }}
                                 transition={{duration: 5, delay: 5.8, type: 'spring', stiffness: 90 }}
-                                ><FaCamera />
+                                ><FaPlus />
             </motion.div>
         </>
 
