@@ -15,22 +15,25 @@ const AddMemory = () => {
             about: '',
         });
     
-      const { setUser } = useContext(FormContext);
+    //   const { setUser } = useContext(FormContext);
     
         const handleSubmit = (event) => {
             event.preventDefault();
+            console.log(formData)
         
-            setUser(formData);
+            // setUser(formData);
         };
     
       const handleChange = (event) => {
             const { name, value } = event.target;
+            console.log(name)
+            console.log(value)
         
-            setFormData((prevFormData) => ({
-            ...prevFormData,
-            [name]: value,
-            }));
-        };
+        //     setFormData((prevFormData) => ({
+        //     ...prevFormData,
+        //     [name]: value,
+        //     }));
+         };
 
 
     return ( 
@@ -149,4 +152,4 @@ const AddMemory = () => {
   );
 }
  
-export default AddMemory;
+export default AddMemory
