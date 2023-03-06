@@ -1,6 +1,6 @@
 import { React } from "react";
 import { AiOutlineMail } from 'react-icons/ai';
-import { FaCamera, FaInstagram, FaPlus, FaTwitter } from 'react-icons/fa';
+import { FaInstagram, FaPlus, FaTwitter } from 'react-icons/fa';
 import { motion } from 'framer-motion'
 import { Link } from "react-router-dom";
 import { Splide, SplideSlide, SplidePagination } from '@splidejs/react-splide'; 
@@ -53,7 +53,7 @@ const ImageSlider  = ({ students, searchTerm, selectedDept }) => {
                                     <li className="list-none"><div className="icon-container" href="#"><FaInstagram className="icon"/></div></li>
                                     <li className="list-none"><div className="icon-container" href="#"><AiOutlineMail className="icon"/></div></li>
                                 </ul>
-                                <div className="absolute sm:top-[80px] sm:p-10 sm:left-[-5%] md:w-auto md:h-[120px] md:top-[453px] md:left-[0] md:group-hover:bottom-[-100px] bg-transparent z-2 p-3 duration-[.6s]">
+                                <div className="absolute sm:top-[25%] sm:p-10 sm:left-[-5%] md:w-auto md:h-[120px] md:top-[453px] md:left-[0] md:group-hover:bottom-[-100px] bg-transparent z-2 p-3 duration-[.6s]">
                                     <h2 className="my-[30px] sm:text-[10px] md:text-lg text-white text-center md:text-lg font-bold">{student.first_name + " " + student.last_name}<span className="text-lg text-white font-light sm:opacity-0 md:opacity-100 leading-[2]">  |  {student.dept}</span> </h2>
                                 </div>
                             </div>

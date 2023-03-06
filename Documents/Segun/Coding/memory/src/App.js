@@ -6,6 +6,7 @@ import Modal from "./Modal";
 import axios from "axios";
 import { FormContext } from "./context/FormContext";
 import AddMemory from "./AddMemory";
+import { AuthContextProvider } from "./context/AuthContext";
 
 const App = () => {
 
@@ -25,6 +26,8 @@ const App = () => {
   
 
   return ( 
+    <AuthContextProvider>
+
      <BrowserRouter>
       <div>  
         <Navbar 
@@ -59,6 +62,7 @@ const App = () => {
       </div>
     </BrowserRouter>
    
+  </AuthContextProvider>
    );
 }
  

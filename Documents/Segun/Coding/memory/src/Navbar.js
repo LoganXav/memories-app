@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
-import { FaCamera, FaPlus, FaUser } from 'react-icons/fa';
+import { FaPlus, FaUser } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import { signInWIthGoogle } from './firebase';
+import { auth } from './firebase';
 import { Link } from 'react-router-dom';
+import { UserAuth } from './context/AuthContext';
 
 
 const Navbar = ({searchTerm, setSearchTerm, setSelectedDept}) => {
@@ -19,9 +20,25 @@ const Navbar = ({searchTerm, setSearchTerm, setSelectedDept}) => {
         setSelectedButton((prev) => 
           prev === dept ? prev = "" : dept)                          // new dept selected, replace the prev. prev selected, return stated to an empty string
       }   
+
+      const {user, signInWithGoogle, logOut} = UserAuth()
       
-      const name = localStorage.getItem("name")    // get authenticated user profile picture
-      console.log(name)
+      const handleGoogleSignIn = async () => {
+        try{
+            
+            if(auth.currentUser) {
+                if(window.confirm("Are you sure you want to sign out?")){
+                    logOut()
+                    window.alert("You are signed out")
+                }
+            } else {
+                await signInWithGoogle()                
+                
+            }
+        } catch (error) {
+            console.log(error)                       
+        }
+      }     
     
     return ( 
         <div className=''>         
@@ -40,7 +57,7 @@ const Navbar = ({searchTerm, setSearchTerm, setSelectedDept}) => {
                         initial={{ y: -300}}
                         animate={{ y: -10 }}
                         transition={{duration: 0.9, delay: 0.5, type: 'spring', stiffness: 120 }}>
-                        <button onClick={signInWIthGoogle} disabled={name ? true : false} className='btn1'><FaUser /></button> <span className='text-white text-sm'>SIGN IN</span>
+                        <button onClick={handleGoogleSignIn} className={`btn2 ${user == null ? 'bg-transparent text-white animate-pulse' : 'bg-white text-black'}`}><FaUser /></button> 
                                               
                     </motion.div>                    
                 </motion.div>
