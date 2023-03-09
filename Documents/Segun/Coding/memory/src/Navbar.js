@@ -26,7 +26,7 @@ const Navbar = ({searchTerm, setSearchTerm, setSelectedDept}) => {
       const handleGoogleSignIn = async () => {
         try{
             
-            if(auth.currentUser) {
+            if(auth.currentUser) {                              // if user is authenticated
                 if(window.confirm("Are you sure you want to sign out?")){
                     logOut()
                     window.alert("You are signed out")
@@ -80,7 +80,7 @@ const Navbar = ({searchTerm, setSearchTerm, setSelectedDept}) => {
                         
                 </motion.div>
                 <Link to= "/addMemory/">
-                    <motion.div className="rounded-full md:flex ml-5 sm:hidden items-center transition ease-out duration-500 sm:p-5 md:p-3 sm:text-[18px] md:text-[20px] bg-[gray] text-white uppercase md:cursor-pointer border md:hover:bg-white md:hover:text-black"
+                    <motion.div className="rounded-full md:flex ml-5 sm:hidden items-center font-light transition ease-out duration-500 sm:p-5 md:p-3 sm:text-[18px] md:text-[20px] bg-[gray] text-white uppercase md:cursor-pointer border md:hover:bg-white md:hover:text-black"
                                     initial={{ scaleX: 0}}
                                     animate={{ scaleX: 1 }}
                                     transition={{duration: 5, delay: 3.5, type: 'spring', stiffness: 90 }}
