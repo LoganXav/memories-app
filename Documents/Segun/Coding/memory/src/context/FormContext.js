@@ -1,15 +1,15 @@
-import React, { createContext, useState } from 'react';
+// import React, { createContext, useState } from 'react';
 
-export const FormContext = createContext();
+// export const FormContext = createContext();
 
-const FormContextProvider = ({ children }) => {
-  const [user, setUser] = useState({});
+// const FormContextProvider = ({ children }) => {
+//   const [user, setUser] = useState({});
 
-  return (
-    <FormContext.Provider value={{ user, setUser }}>
-      {children}
-    </FormContext.Provider>
-  );
-};
+//   return (
+//     <FormContext.Provider value={{ user, setUser }}>
+//       {children}
+//     </FormContext.Provider>
+//   );
+// };
 
-export default FormContextProvider;
+// export default FormContextProvider;

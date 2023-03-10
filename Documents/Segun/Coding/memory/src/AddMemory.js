@@ -29,10 +29,10 @@ const AddMemory = () => {
             console.log(name)
             console.log(value)
         
-        //     setFormData((prevFormData) => ({
-        //     ...prevFormData,
-        //     [name]: value,
-        //     }));
+            setFormData((prevFormData) => ({
+            ...prevFormData,
+            [name]: value,
+            }));
          };
 
 
