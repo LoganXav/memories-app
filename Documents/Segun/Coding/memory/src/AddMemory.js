@@ -44,6 +44,7 @@ const AddMemory = () => {
     
         const handleSubmit = async (event) => {
             event.preventDefault();
+            console.log("uploading")
 
             try {
 
@@ -78,7 +79,8 @@ const AddMemory = () => {
             about: ''
         })
         navigate(-1)
-        console.log(formData)            
+        console.log("uploaded")
+                    
         };
     
       const handleChange = (event) => {
@@ -87,9 +89,7 @@ const AddMemory = () => {
             setFormData((prevFormData) => ({
             ...prevFormData,
             [name]: value,
-            }));
-
-            console.log(formData)
+            }));           
 
          };
 
@@ -102,7 +102,7 @@ const AddMemory = () => {
                 animate = "visible"
                 exit = "hidden"
                 >
-                <motion.div className='sm:w-full sm:h-screen flex items-center flex-col md:max-w-[1200px] mt-0 mx-auto py-[40px]' 
+                <motion.div className='sm:w-full sm:h-screen flex items-center flex-col md:max-w-[2500px] mt-0 mx-auto py-[40px]' 
                     variants= {modal}                    
                 >
                     <form onSubmit={handleSubmit} className = "py-0 flex sm:w-[80%] md:w-[70%] flex-col gap-3 px-5 border text-white rounded-md">
@@ -178,6 +178,27 @@ const AddMemory = () => {
                                         file:text-black
                                         file:cursor-pointer'
                                         
+                                    name="image0"
+                                    onChange={(event) =>
+                                        setFormData((prevFormData) => ({
+                                        ...prevFormData,
+                                        images: [...prevFormData.images, event.target.files[0]],
+                                        }))
+                                    }
+                                    />
+                                </label>
+
+                                <label className='flex flex-col items-start py-2'>                            
+                                    <input
+                                    type="file"
+                                    className='
+                                        p-1 rounded-full sm:text-xs md:text-sm sm:border-none
+                                        file:bg-white
+                                        file:px-3 file:py-1 file:m-1 file:mr-3
+                                        file:border-none
+                                        file:rounded-full
+                                        file:text-black
+                                        file:cursor-pointer'
                                     name="image1"
                                     onChange={(event) =>
                                         setFormData((prevFormData) => ({
@@ -241,7 +262,7 @@ const AddMemory = () => {
                                         file:rounded-full
                                         file:text-black
                                         file:cursor-pointer'
-                                    name="image3"
+                                    name="image4"
                                     onChange={(event) =>
                                         setFormData((prevFormData) => ({
                                         ...prevFormData,
