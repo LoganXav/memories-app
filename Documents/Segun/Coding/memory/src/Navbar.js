@@ -2,31 +2,32 @@ import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { FaPlus, FaUser } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import { auth } from './firebase';
-import { Link } from 'react-router-dom';
 import { UserAuth } from './context/AuthContext';
+import { useNavigate } from "react-router-dom";
 
 
 const Navbar = ({searchTerm, setSearchTerm, setSelectedDept}) => {
     
     const [selectedButton, setSelectedButton] = useState("")             // keeps track of state of the selected buttons for styling
-       
+    const navigate = useNavigate()
+
+
     const handleClick = (dept) => {
         setSelectedDept((prevState) =>
           prevState.includes(dept)
-            ? prevState.filter((selected) => selected != dept)
+            ? prevState.filter((selected) => selected !== dept)
             : [dept]
         );
         setSelectedButton((prev) => 
           prev === dept ? prev = "" : dept)                          // new dept selected, replace the prev. prev selected, return stated to an empty string
       }   
 
-      const {user, signInWithGoogle, logOut} = UserAuth()
+      const {user, signInWithGoogle, logOut} = UserAuth()      
       
       const handleGoogleSignIn = async () => {
         try{
             
-            if(auth.currentUser) {                              // if user is authenticated
+            if(user) {                              // if user is authenticated
                 if(window.confirm("Are you sure you want to sign out?")){
                     logOut()
                     window.alert("You are signed out")
@@ -37,8 +38,17 @@ const Navbar = ({searchTerm, setSearchTerm, setSelectedDept}) => {
             }
         } catch (error) {
             console.log(error)                       
+        }       
+      }  
+      
+      const handleNavigate = () => {
+        console.log("licked")
+        if (user) {
+          navigate("/addMemory");
+        } else {
+          window.alert("Please sign in to add a memory.");
         }
-      }     
+      };
     
     return ( 
         <div className=''>         
@@ -79,14 +89,14 @@ const Navbar = ({searchTerm, setSearchTerm, setSelectedDept}) => {
                         </div>
                         
                 </motion.div>
-                <Link to= "/addMemory/">
-                    <motion.div className="rounded-full md:flex ml-5 sm:hidden items-center font-light transition ease-out duration-500 sm:p-5 md:p-3 sm:text-[18px] md:text-[20px] bg-[gray] text-white uppercase md:cursor-pointer border md:hover:bg-white md:hover:text-black"
+                
+                    <motion.div onClick={handleNavigate} className="rounded-full md:flex ml-5 sm:hidden items-center font-light transition ease-out duration-500 sm:p-5 md:p-3 sm:text-[18px] md:text-[20px] bg-[gray] text-white uppercase md:cursor-pointer border md:hover:bg-white md:hover:text-black"
                                     initial={{ scaleX: 0}}
                                     animate={{ scaleX: 1 }}
                                     transition={{duration: 5, delay: 3.5, type: 'spring', stiffness: 90 }}
                                     ><FaPlus />
                     </motion.div>
-                </Link>
+                
                                        
             </div>                              
             

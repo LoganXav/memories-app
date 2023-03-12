@@ -2,15 +2,17 @@ import { React } from "react";
 import { AiOutlineMail } from 'react-icons/ai';
 import { FaInstagram, FaPlus, FaTwitter } from 'react-icons/fa';
 import { motion } from 'framer-motion'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Splide, SplideSlide, SplidePagination } from '@splidejs/react-splide'; 
 import '@splidejs/splide/dist/css/splide.min.css';
+import dummyUser from './asset/images.png'
 
 
-const ImageSlider  = ({ students, searchTerm, selectedDept }) => {
 
-    const filteredStudents = students.filter((student) => student.dept.includes(selectedDept))
-    const searchedStudents = filteredStudents.filter((student) => student.first_name.toLowerCase().includes(searchTerm.toLowerCase()))
+const ImageSlider  = ({ students, searchTerm, selectedDept }) => {    
+    const navigate = useNavigate()
+    const filteredStudents = students.filter((student) => student.department.includes(selectedDept))
+    const searchedStudents = filteredStudents.filter((student) => student.firstName.toLowerCase().includes(searchTerm.toLowerCase()))
 
     
     const splideOptions = {
@@ -40,13 +42,13 @@ const ImageSlider  = ({ students, searchTerm, selectedDept }) => {
                 transition={{duration: 0.9, delay: 1, type: 'spring', stiffness: 20 }}
                 className="w-auto relative px-7 py-3 box-border sm:mt-[20%] md:mt-[1%] focus:outline-none active:border-none hover:border-none">
                 <Splide options = {splideOptions}>
-                    {searchedStudents.map((student) => (
+                    {students && searchedStudents.map((student) => (
                     <SplideSlide key={student.id} className="sm:max-w-full md:w-full md:h-[500px] p-2 bg-transparent sm:h-[200px] cursor-pointer group">
                        <Link to= {`/students/${student.id}`} >
-                            <div className=" sm:w-full md:w-auto relative sm:bg-transparent md:bg-black z-2 h-full duration-500 hover:transform sm:hover:translate-y-[-15px] md:hover:translate-y-[-60px] hover:transition-all hover:ease-in-out hover:duration-1000">
+                            <div className=" sm:w-full rounded-md overflow-none md:w-auto relative sm:bg-transparent md:bg-black z-2 h-full duration-500 hover:transform sm:hover:translate-y-[-15px] md:hover:translate-y-[-60px] hover:transition-all hover:ease-in-out hover:duration-1000">
                                 
                                 <img                                                        
-                                    className="sm:w-[full] md:w-full h-full overflow-hidden center object-cover opacity-100 group-hover:opacity-50 transition duration-500" src={student.img} alt="" 
+                                    className="sm:w-[full] md:w-full h-full overflow-hidden center object-cover opacity-100 group-hover:opacity-50 transition duration-500" src={student.images[0] || dummyUser} alt="" 
                                 />                                
                                 <ul className="md:flex md:gap-5 z-2 mx-auto sm:hidden bg-transparent absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 blur-[1px] opacity-0 group-hover:opacity-100 transition duration-500">
                                     <li className="list-none"><div className="icon-container" href="#"><FaTwitter className="icon"/></div></li>
@@ -54,7 +56,7 @@ const ImageSlider  = ({ students, searchTerm, selectedDept }) => {
                                     <li className="list-none"><div className="icon-container" href="#"><AiOutlineMail className="icon"/></div></li>
                                 </ul>
                                 <div className="absolute sm:top-[25%] sm:p-10 sm:left-[-5%] md:w-auto md:h-[120px] md:top-[453px] md:left-[0] md:group-hover:bottom-[-100px] bg-transparent z-2 p-3 duration-[.6s]">
-                                    <h2 className="my-[30px] sm:text-[10px] md:text-lg text-white text-center md:text-lg font-bold">{student.first_name + " " + student.last_name}<span className="text-lg text-white font-light sm:opacity-0 md:opacity-100 leading-[2]">  |  {student.dept}</span> </h2>
+                                    <h2 className="my-[30px] sm:text-[10px] md:text-lg text-white text-center md:text-lg font-bold">{student.firstName + " " + student.lastName}<span className="text-lg text-white font-light sm:opacity-0 md:opacity-100 leading-[2]">  |  {student.department}</span> </h2>
                                 </div>
                             </div>
                         </Link>
@@ -69,7 +71,7 @@ const ImageSlider  = ({ students, searchTerm, selectedDept }) => {
                                 initial={{ scaleX: 0}}
                                 animate={{ scaleX: 1 }}
                                 transition={{duration: 5, delay: 5.8, type: 'spring', stiffness: 90 }}
-                                ><FaPlus />
+                                ><FaPlus  onClick={() => navigate("/addMemory")}/>
             </motion.div>
         </>
 

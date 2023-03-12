@@ -12,7 +12,7 @@ const Typewriter = ({  student = {} }) => {
             if (isTyping) {
                 const intervalId = setInterval(() => {
                     setText(prevText => {
-                        const fullText = `Hi, ${student.first_name} here and these are my memories`
+                        const fullText = `${student.about ? student.about : 'No about text available'}`
                         const nextCharIndex = prevText.length + 1
                         const nextText = fullText.slice(0, nextCharIndex)
     

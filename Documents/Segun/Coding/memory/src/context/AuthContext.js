@@ -24,15 +24,18 @@ export const AuthContextProvider = ({ children }) => {
 
     const logOut = () => {
         signOut(auth)
+        
     }
 
     useEffect(() => {
         const unsuscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser)
-            // console.log('User', currentUser)
+
+           
+             console.log('User', currentUser)
         })
         return () => {
-            unsuscribe ()
+            unsuscribe ()     // this helps to stop listening for auth state changes when the component is unmounted
         }
     }, [])
 
